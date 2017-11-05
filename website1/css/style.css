@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+}
+
+
+/* 測試用邊框 */
+
+
+/* * {
+    border: 1px solid red;
+} */
+
+* {
+    font-family: sans-serif;
+}
+
+.container {
+    width: 1170px;
+    margin: 0 auto;
+}
+
+.container-fluid {
+    width: 100%;
+}
+
+
+/* nav設定開始 */
+
+nav {
+    position: sticky;
+    top: 0;
+}
+
+.menu {
+    height: 50px;
+    text-align: right;
+    line-height: 50px;
+    background-color: rgb(110, 90, 59);
+}
+
+.menu a {
+    margin: 15px;
+    color: white;
+    text-decoration: none;
+}
+
+
+/* nav設定結束 */
+
+
+/* header設定開始 */
+
+.background {
+    height: 650px;
+    background-image: url("../image/dabir-bernard-58999.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-y: -600px;
+    opacity: 1;
+}
+
+div.background>h1 {
+    font-size: 50px;
+    color: white;
+    text-shadow: 1px 2px 7px black;
+    text-align: center;
+    line-height: 700px;
+}
+
+
+/* header設定結束 */
+
+
+/* section設定開始 */
+
+section {
+    margin: 80px 0px;
+}
+
+.ex {
+    margin: 30px;
+}
+
+section h2,
+section p {
+    line-height: 2;
+}
+
+section p {
+    font-size: 18px;
+}
+
+
+/* section設定結束 */
+
+
+/* 卡片設定開始 */
+
+
+/* .card {
+    display: block;
+    width: calc(100%/3);
+    height: 200px;
+    border: 1px solid black;
+    float: left;
+}
+
+.card:hover {
+    background-color: gray;
+    opacity: 0.7;
+    transition: 1.5s;
+} */
+
+
+/* 卡片設定結束 */
+
+footer {
+    border-top: 1px solid gray;
+    padding: 30px 30px 40px 30px;
+    text-align: center;
+}
+
+footer a {
+    font-size: 30px;
+    text-decoration: none;
+    margin: 10px;
+    color: black;
+}
+
+a :hover {
+    color: pink;
+}
+
+a :active {
+    color: palevioletred;
+}
+
+footer p {
+    font-size: 10px;
+    margin: 15px;
+}
