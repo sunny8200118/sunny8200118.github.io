@@ -1,0 +1,91 @@
+.timeline {
+    display: block;
+    width: 500px;
+    height: 900px;
+    border: 1px solid blue;
+    position: relative;
+    margin: 0 auto;
+}
+
+
+/*=============================================
+=                      線                     =
+=============================================*/
+
+.timeline::after {
+    content: '';
+    display: block;
+    width: 3px;
+    height: 900px;
+    background-color: red;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+
+/*=====  End of           線           ======*/
+
+.container {
+    position: relative;
+    width: 50%;
+    height: 200px;
+    background-color: gray;
+}
+
+
+/*=============================================
+=                      點                     =
+=============================================*/
+
+.container::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 25px;
+    background-color: tomato;
+    border-radius: 50%;
+}
+
+
+/*=====  End of           點           ======*/
+
+.left {
+    left: 0;
+}
+
+.right {
+    left: 50%;
+}
+
+.left::before {
+    content: " ";
+    position: absolute;
+    height: 0;
+    width: 0;
+    z-index: 1;
+    top: 22px;
+    right: 50px;
+    border: 3px solid rgb(114, 18, 18);
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent yellow;
+}
+
+.right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent yellow transparent transparent;
+}
+
+.right::after {
+    left: -16px;
+}
