@@ -1,16 +1,18 @@
 * {
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: sans-serif, Microsoft JhengHei;
 }
 
+img {
+    max-width: 100%;
+}
 
-/* * {
-    border: 1px solid red;
-} */
+body {
+    background-color: rgb(10, 25, 23);
+}
 
 nav {
     height: 50px;
-    background-color: rgb(49, 26, 19);
 }
 
 .but a {
@@ -24,25 +26,96 @@ nav {
 .but a:visited,
 .but a:hover,
 .but a:active {
-    font-weight: 500;
+    font-weight: 600;
     text-decoration: none;
 }
 
 .but a:hover {
-    color: rgb(173, 173, 173);
+    color: rgb(231, 172, 62);
 }
 
-.but a:active {
-    color: rgb(95, 95, 95);
+header {
+    display: block;
+    background-image: url("../images/benjamin-davies-361151.jpg");
+    max-width: 100%;
+    height: 100vh;
+    padding-top: 25vh;
 }
+
+.image img {
+    max-width: 100%;
+    border: 3px solid snow;
+    border-radius: 50%;
+}
+
+.image h2 {
+    color: white;
+    text-align: center;
+    margin: 15px;
+    text-shadow: 1px 1px 10px black;
+}
+
+#about {
+    color: white;
+    text-align: center;
+    line-height: 1.5;
+}
+
+#about li {
+    list-style-type: none;
+}
+
+
+/*=============================================
+=                top按鈕設定開始                =
+=============================================*/
+
+.top {
+    display: block;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background-color: rgb(158, 149, 149);
+    border-radius: 50%;
+    position: fixed;
+    top: 87%;
+    right: 3%;
+}
+
+.top a {
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.top a:hover:after {
+    content: 'TOP';
+    color: white;
+    letter-spacing: 1px;
+    font-weight: 650;
+    width: 50px;
+    height: 50px;
+    box-shadow: 1px 1px 10px black;
+    border-radius: 50%;
+    background-color: rgb(158, 149, 149);
+    position: fixed;
+    top: 87%;
+    right: 3%;
+}
+
+
+/*=====  End of     top按鈕設定結束      ======*/
 
 section {
     padding: 3%;
 }
 
-header img {
+
+/* header img {
     max-width: 100%;
-}
+} */
 
 .box {
     padding: 10px;
@@ -55,6 +128,19 @@ header img {
 
 .box ul {
     list-style-type: none;
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid gray;
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+    display: block;
+    unicode-bidi: isolate;
+    margin: 30px;
 }
 
 
@@ -78,7 +164,7 @@ header img {
     display: block;
     width: 3px;
     height: 95%;
-    background-color: red;
+    background-color: rgb(158, 149, 149);
     position: absolute;
     top: 2.5%;
     left: 50%;
@@ -105,7 +191,7 @@ header img {
     width: 15px;
     height: 15px;
     top: 25px;
-    background-color: tomato;
+    background-color: rgb(231, 172, 62);
     border-radius: 50%;
 }
 
@@ -164,12 +250,13 @@ header img {
 =============================================*/
 
 .card {
-    height: 300px;
+    width: 240px;
+    height: 180px;
     position: relative;
+    margin: 7px;
 }
 
 .card img {
-    max-width: 100%;
     display: block;
 }
 
@@ -177,15 +264,12 @@ header img {
 /* 灰色漸變 */
 
 .card a:hover:after {
-    content: 'Large';
-    color: white;
-    text-align: center;
-    line-height: 300px;
+    content: '';
     display: block;
     width: 100%;
     height: 100%;
     background-color: rgb(24, 24, 24);
-    opacity: 0.8;
+    opacity: 0.6;
     position: absolute;
     transition: opacity 1.5s;
     top: 0;
@@ -205,3 +289,29 @@ header img {
 
 
 /*=====  End of      card設定開始       ======*/
+
+footer {
+    border-top: 1px solid gray;
+    padding: 30px 30px 40px 30px;
+}
+
+footer a {
+    font-size: 30px;
+    text-decoration: none;
+    margin: 10px;
+    color: rgb(158, 149, 149);
+}
+
+footer a:hover {
+    color: rgb(231, 172, 62);
+}
+
+footer a:active {
+    color: rgb(173, 133, 58);
+}
+
+footer p {
+    color: rgb(158, 149, 149);
+    font-size: 10px;
+    margin: 15px;
+}
