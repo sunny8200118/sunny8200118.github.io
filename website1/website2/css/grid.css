@@ -1,12 +1,11 @@
-[class^"col-"] {
-    float: left;
-    padding: 15px;
+* {
+    box-sizing: border-box;
 }
 
-.container {
-    margin: 0 auto;
-    overflow: auto;
-    border: 1px solid black;
+[class^="col-"] {
+    width: 100%;
+    float: left;
+    padding: 15px;
 }
 
 
@@ -14,7 +13,7 @@
 =                  col-xs-*                   =
 =============================================*/
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:767px) {
     .col-xs-1 {
         width: calc(100% * 1 / 12);
     }
@@ -61,7 +60,7 @@
 =                   col-sm-*                  =
 =============================================*/
 
-@media screen and (min-width:768) and (max-width:996px) {
+@media screen and (min-width:768px) and (max-width:991px) {
     .col-sm-1 {
         width: calc(100% * 1 / 12);
     }
@@ -108,7 +107,7 @@
 =                   col-md-*                  =
 =============================================*/
 
-@media screen and (min-width:997) and (max-width:1200px) {
+@media screen and (min-width:992px) and (max-width:1199px) {
     .col-md-1 {
         width: calc(100% * 1 / 12);
     }
@@ -155,7 +154,7 @@
 =                   col-lg-*                  =
 =============================================*/
 
-@media screen and (min-width:1200) {
+@media screen and (min-width:1200px) {
     .col-lg-1 {
         width: calc(100% * 1 / 12);
     }
