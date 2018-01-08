@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif, 微軟正黑體;
+    /* border: 1px solid rgb(121, 100, 100); */
+}
+
+img {
+    display: block;
+}
+
+.container {
+    display: flex;
+}
+
+.content {
+    display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.justify-space-around {
+    justify-content: space-around;
+}
+
+.justify-space-between {
+    justify-content: space-between;
+}
+
+a {
+    text-decoration: none;
+}
+
+header a {
+    display: flex;
+    align-items: flex-end;
+}
+
+
+/* 選單叉叉開始 */
+
+#cross {
+    width: 55px;
+    height: 55px;
+    background-color: rgb(41, 37, 37);
+    border-radius: 10px;
+}
+
+.one,
+.two,
+.three {
+    position: relative;
+    width: 35px;
+    height: 5px;
+    margin: 6px 0;
+    left: 10px;
+    top: 12px;
+    transition: 0.4s;
+    background-color: rgb(255, 255, 255);
+}
+
+.change {
+    background-color: rgb(49, 97, 97)!important;
+    border-radius: 10px 10px 0px 0px!important;
+}
+
+.change .one {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .two {
+    opacity: 0;
+}
+
+.change .three {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+
+/* 選單叉叉結束 */
+
+
+/* .flex-column-wrap {
+    flex-flow: column;
+} */
+
+.navbar {
+    display: none;
+    background-color: rgb(49, 97, 97);
+    border-radius: 0px 0px 10px 10px;
+    width: 55px;
+    font-size: 35px;
+}
+
+.navbar a {
+    display: block;
+    color: white;
+    padding: 10px;
+}
+
+.commodity {
+    padding: 8px;
+    text-align: center;
+}
