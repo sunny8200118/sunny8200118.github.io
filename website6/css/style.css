@@ -1,0 +1,496 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../images/john-towner-177554-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+input {
+    font-family: "蘋方體", "微軟正黑體", Arial, sans-serif;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+}
+
+.background-color-white {
+    background-color: white;
+}
+
+.background-color-gray {
+    background-color: #f1f1f1;
+}
+
+.line {
+    display: block;
+    width: 95px;
+    height: 1px;
+    border-top: solid 1px gray;
+}
+
+h1 {
+    font-size: 40px;
+    padding: 28px 0;
+}
+
+h2 {
+    font-size: 24px;
+    padding: 10px;
+}
+
+p {
+    font-size: 20px;
+    padding: 10px;
+    line-height: 40px;
+}
+
+/*=============================================
+=                  nav設定開始                 =
+=============================================*/
+
+nav {
+    display: block;
+    position: fixed;
+    right: 0px;
+    padding: 8px;
+    z-index: 1;
+}
+
+#menu {
+    display: block;
+    width: 55px;
+    height: 55px;
+    background-color: rgb(155, 155, 155);
+    border-radius: 10px;
+}
+
+.one,
+.two,
+.three {
+    position: relative;
+    width: 35px;
+    height: 5px;
+    margin: 6px 0;
+    left: 10px;
+    top: 14px;
+    transition: 0.4s;
+    background-color: rgb(255, 255, 255);
+}
+
+.change {
+    background-color: rgb(49, 97, 97) !important;
+    border-radius: 10px 10px 0px 0px !important;
+}
+
+.change .one {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .two {
+    opacity: 0;
+}
+
+.change .three {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+#navbar {
+    display: none;
+    background-color: rgb(49, 97, 97);
+    border-radius: 0px 0px 10px 10px;
+    width: 55px;
+    font-size: 35px;
+}
+
+.car {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.car a {
+    display: block;
+    color: white;
+    padding: 0px 0px 12px 0px;
+}
+
+.car a:nth-of-type(3) {
+    font-size: 31px;
+    margin: -6px 0px 7px 0px;
+}
+
+.overlay-car {
+    display: none;
+}
+
+.show-nav {
+    display: block !important;
+}
+
+/*=====  End of       nav設定結束       ======*/
+
+/*=============================================
+=              aboutMe區塊設定開始              =
+=============================================*/
+
+#top {
+    padding: 120px 0px;
+    display: flex;
+    align-items: center;
+}
+
+.myPhoto {
+    margin: 0px 64px 0px 0px;
+}
+
+.myPhoto img {
+    display: block;
+    border-radius: 50%;
+}
+
+/*=====  End of   aboutMe區塊設定結束    ======*/
+
+/*=============================================
+=                 技能設定開始                  =
+=============================================*/
+
+.skill {
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+}
+
+li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 126px;
+    height: 126px;
+    border: 2px solid rgb(160, 160, 160);
+    border-radius: 50%;
+    background-color: white;
+    margin: 26px;
+}
+
+li span {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+}
+
+.first::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 50px;
+    border: 1px solid rgb(160, 160, 160);
+    left: 124px;
+    top: 63px;
+}
+
+/*=====  End of      技能設定結束        ======*/
+
+/*=============================================
+=                 時間軸設定開始                =
+=============================================*/
+
+.time-line {
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+}
+
+.timeLine {
+    position: relative;
+    width: 100%;
+    margin-top: 50px;
+    color: rgb(255, 255, 255);
+}
+
+.timeLine h3 {
+    line-height: 32px;
+}
+
+.timeLine p {
+    font-size: 20.8px;
+}
+
+.timeLine::after {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 417px;
+    background-color: #5e5b60;
+    margin: 0 auto;
+}
+
+.left,
+.right {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: 40%;
+    height: auto;
+    background-color: #5e5b60;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.left {
+    left: 5%;
+}
+
+.right {
+    left: 55%;
+    top: 104px;
+}
+
+.left:nth-of-type(4n+3) {
+    top: 208px;
+}
+
+.right:nth-of-type(4n+4) {
+    top: 312px;
+}
+
+.left::before,
+.right::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 3px solid #5e5b60;
+    background-color: rgb(255, 255, 255);
+    top: calc(50% - 10px);
+    z-index: 2;
+}
+
+.left::before {
+    left: calc(112% - 8.5px);
+}
+
+.right::before {
+    right: calc(112% - 9.5px);
+}
+
+.left::after,
+.right::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 12%;
+    height: 3px;
+    background-color: #5e5b60;
+    top: 50%;
+    z-index: 1;
+}
+
+.left::after {
+    left: 100%;
+}
+
+.right::after {
+    right: 100%;
+}
+
+/*=====  End of      時間軸設定結束      ======*/
+
+/*=============================================
+=                  燈箱設定開始                 =
+=============================================*/
+
+.works {
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 0px 42px 0px;
+}
+
+.light {
+    flex-wrap: wrap;
+    background-color: #f1f1f1;
+    padding-bottom: 100px;
+}
+
+.box {
+    position: relative;
+    margin: 8px;
+}
+
+.box img {
+    vertical-align: middle;
+}
+
+.box:hover {
+    box-shadow: 0px 0px 10px #000000;
+    transition: box-shadow 0.5s;
+}
+
+.box img:hover {
+    text-shadow: 0px 0px 5px #000000;
+    transition: box-shadow 0.5s;
+}
+
+#my-light-box {
+    display: none;
+    justify-content: center;
+}
+
+.contentLightBox {
+    display: flex;
+    justify-content: center;
+}
+
+.contentLightBox::after {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #292929;
+    opacity: 0.8;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.mySlides {
+    display: none;
+    position: fixed;
+    /* -webkit-transform: translate3d(-50%, 0, 0); */
+    max-width: 80%;
+    top: 20%;
+    z-index: 1000;
+}
+
+#my-light-box span {
+    font-size: 100px;
+    color: rgb(255, 255, 255);
+    position: fixed;
+    top: 5%;
+    right: 5%;
+    z-index: 1001;
+    cursor: pointer;
+}
+
+.previous,
+.next {
+    font-size: 100px;
+    color: rgb(255, 255, 255);
+    position: fixed;
+    top: 35%;
+    z-index: 1001;
+    cursor: pointer;
+}
+
+.previous {
+    left: 5%;
+}
+
+.next {
+    right: 5%;
+}
+
+/*=====  End of       燈箱設定結束       ======*/
+
+/*=============================================
+=                   聯絡我開始                  =
+=============================================*/
+
+.like-me {
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+    color: white;
+}
+
+.contact {
+    padding: 100px;
+}
+
+.contact-left {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 8px;
+}
+
+.contact-left h1 {
+    line-height: 45px;
+}
+
+.contact-left p {
+    padding: 10px 0px 49px 0px;
+    color: gray;
+}
+
+.contact-right {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+}
+
+.row input {
+    border-radius: 8px;
+    border: solid 1px rgb(160, 160, 160);
+    width: 100%;
+    padding: 16px;
+    margin: 8px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="submit"],
+input[type="reset"] {
+    height: 48px;
+}
+
+input[type="message"] {
+    height: 112px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    color: white;
+    font-size: 16px;
+    border-radius: 24px;
+    background-color: rgb(160, 160, 160);
+    border: 0px;
+    padding: 0px;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: rgb(187, 187, 187);
+}
+
+/*=====  End of        聯絡我結束        ======*/
