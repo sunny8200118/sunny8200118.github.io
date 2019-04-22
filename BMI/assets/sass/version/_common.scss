@@ -1,0 +1,273 @@
+@mixin ovr-transition($t1, $t2) {
+  -o-transition: $t1, $t2;
+  -webkit-transition: $t1, $t2;
+  -moz-transition: $t1, $t2;
+  transition: $t1, $t2;
+}
+// ------ 圓角
+@mixin border-radius ($radius) {
+  -ms-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+// ------ 漸層
+@mixin gradient-effect($args...) {
+  background: -o-linear-gradient($args); 
+  background: -moz-linear-gradient($args); 
+  background: -webkit-linear-gradient($args); 
+  background: -ms-linear-gradient($args...);
+  background: linear-gradient($args); 
+  -pie-background: linear-gradient($args);
+}
+// ------ 區塊陰影
+@mixin shadow($shadow...) {
+  -webkit-box-shadow: ($shadow);
+  -ms-box-shadow: ($shadow);
+  box-shadow: ($shadow);
+}
+// ------ 漸變時間差
+@mixin TS($transition...) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  -ms-transform: $transition;
+  transition: $transition;
+}
+@mixin TS-d($Seconds){
+  -webkit-transition-delay: $Seconds;
+  -moz-transition-delay: $Seconds;
+  -o-transition-delay: $Seconds;
+  transition-delay: $Seconds;
+}
+// ------ 變形屬性
+@mixin TF($transform) {
+  -moz-transform: ($transform);
+  -webkit-transform: ($transform);
+  -o-transform: ($transform);
+  -ms-transform: ($transform);
+  transform: ($transform);
+}
+// ------ 變形軸心
+@mixin TF-o($transform-origin) {
+  -moz-transform-origin: ($transform-origin);
+  -webkit-transform-origin: ($transform-origin);
+  -o-transform-origin: ($transform-origin);
+  -ms-transform-origin: ($transform-origin);
+  transform-origin: ($transform-origin);
+}
+// ------ 動畫
+@mixin animation($animate) {
+  -webkit-animation: ($animate);
+  /* Safari 4+ */
+  -moz-animation: ($animate);
+  /* Fx 5+ */
+  -o-animation: ($animate);
+  /* Opera 12+ */
+  animation: ($animate);
+  /* IE 10+, Fx 29+ */
+}
+// ------ 動畫影格
+@mixin keyframes-anime($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  // @-ms-keyframes #{$name} {
+  //    @content;
+  // }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+// ------ 濾鏡效果
+@mixin filter-display($filter) {
+  -webkit-filter: ($filter);
+  /* Safari 6.0 - 9.0 */
+  filter: $filter;
+}
+// ------ 變形形狀
+@mixin clip-path($clip) {
+  -webkit-clip-path: $clip;
+  clip-path: $clip;
+}
+// ------ 預設表單樣式
+@mixin appearance {
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
+}
+// ------ 預設表單下拉選單箭頭
+@mixin selection {
+  @include appearance;
+  &::selection {
+      display: none;
+  }
+  &::-moz-selection {
+      display: none;
+  }
+  &::-ms-expand {
+      display: none;
+  }
+}
+@mixin WM($mode) {
+  -webkit-writing-mode:$mode;
+  writing-mode: $mode;
+}
+// ------ FlexboxLayout
+@mixin flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+@mixin inline-flex {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+$wrap: nowrap !default;
+@mixin flex($direction,$wrap) {
+  -webkit-flex-direction: $direction;
+  -moz-flex-direction: $direction;
+  -ms-flex-direction: $direction;
+  -o-flex-direction: $direction;
+  flex-direction: $direction;
+  -webkit-flex-wrap: $wrap;
+  -moz-flex-wrap: $wrap;
+  -ms-flex-wrap: $wrap;
+  -o-flex-wrap: $wrap;
+  flex-wrap: $wrap;
+  * {
+    -ms-flex: 0 1 auto;
+  }
+}
+@mixin justify-content($layout) {
+  -webkit-justify-content: $layout;
+  -moz-justify-content: $layout;
+  -o-flex-justify-content: $layout;
+  justify-content: $layout;
+
+  @if $layout == 'flex-start' {
+    -ms-flex-pack: start;
+  } @else
+  if $layout == 'flex-end' {
+    -ms-flex-pack: end;
+  } @else
+  if $layout == 'center' {
+    -ms-flex-pack: center;
+  } @else
+  if $layout == 'space-between' {
+    -ms-flex-pack: justify;
+  } @else
+  if $layout == 'space-around' {
+    -ms-flex-pack: distribute;
+  }
+}
+@mixin align-item($layout) {
+  -webkit-align-items: $layout;
+  align-items: $layout;
+
+  @if $layout == 'flex-start' {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+  } @else
+  if $layout == 'flex-end' {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+  } @else
+  if $layout == 'center' {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+  } @else
+  if $layout == 'baseline' {
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+  } @else
+  if $layout == 'stretch' {
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+  }
+}
+// ----------------   IE10 替代數值 ----------------
+// flex-start ----> start
+// flex-end ----> end
+// center ----> center
+// space-between ----> justify
+// space-around ----> distribute
+// ----------------  IE 100%滿版 替代數值 ----------------
+// -ms-flex:0 1 auto
+
+*,
+*:active,
+*:focus,
+*:hover,
+*:link,
+*:visited {
+  -o-transition: background-color 0.2s linear, border-color 0.1s linear;
+  -webkit-transition: background-color 0.2s linear, border-color 0.1s linear;
+  -moz-transition: background-color 0.2s linear, border-color 0.1s linear;
+  transition: background-color 0.2s linear, border-color 0.1s linear;
+}
+// ------ 色系 (lt:亮, dk:暗)
+$base-color: #000;
+$base-gray-dk: #424242;
+$base-gray: #4A4A4A;
+$base-gray-bg:#f5f5f5;
+$base-yellow: #FFD366;
+$base-yellow-dk: #DEA821;
+$base-orange:#FF982D;
+$base-orange-dk:#FF6C03;
+$base-red:#FF1200;
+$base-green: #86D73F;
+$base-blue: #31BAF9;
+
+// ------ 全網字級定義
+$xs-font: 1rem; // ---- 內文
+$sm-font: 1.6rem; // ---- 副標
+$md-font: 1.9rem; // ---- 主標
+// ------ 自定義FontAwesome
+$icon: "Font Awesome 5 Free";
+$icon_2: icomoon;
+@mixin fa-icon($num, $font-face) {
+  content: $num;
+  font-family: $font-face;
+  
+  @if  $font-face == $icon{
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-weight:900;
+    font-style: normal;
+  } @else 
+  if $font-face == $icon_2{
+    
+  }
+}
+/* ------- 標頭設計(字級,字距,顏色) ------- */
+@mixin heading-title($font-size, $color,$letter-spacing) {
+  font-size: $font-size;
+  letter-spacing: $letter-spacing;
+  color: $color;
+}
+
+// [class*=" fa-"],
+// [class^="fa-"] {
+//   font-family: $icon !important;
+// }
+// 思源黑體
+// @import url(https://fonts.googleapis.com/earlyaccess/cwtexhei.css);
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+html {
+  font-size: 15px;
+}
+
+body {
+  // font-family: 'cwTeXHei','微軟正黑體', sans-serif;
+  font-family: arial,'Noto Sans TC','微軟正黑體', sans-serif;
+}

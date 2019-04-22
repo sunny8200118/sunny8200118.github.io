@@ -1,0 +1,104 @@
+.main {
+    background: $base-gray-bg;
+    min-height: 50vh;
+}
+
+.content {
+    padding: 3rem 0;
+
+    h2 {
+        font-size: 1.5rem;
+        color: $base-gray-dk;
+        font-weight: 400;
+        text-align: center;
+        padding-bottom: 2rem;
+    }
+
+    .data-list {
+        ul {
+            @include flexbox;
+            @include justify-content(space-between);
+            @include align-item(flex-end);
+            background: #fff;
+            border-left: 7px solid;
+            padding: 1.4rem;
+            margin-bottom: 1rem;
+            position: relative;
+
+            &::before {
+                content: "移除";
+                display: block;
+                position: absolute;
+                font-size: 1.3rem;
+                padding: 1.4rem;
+                width: calc(100% + 7px);
+                height: 100%;
+                color: #fff;
+                background-color: $base-gray-dk;
+                top: 0;
+                left: -7px;
+                text-align: center;
+                opacity: 0;
+                @include TS(all .2s);
+            }
+
+            &:hover {
+                &::before {
+                    opacity: 1;
+                    @include TS(all .2s);
+                }
+            }
+
+            &.ideal {
+                border-color: $base-green;
+            }
+
+            &.underweight {
+                border-color: $base-blue;
+            }
+
+            &.overweight {
+                border-color: $base-orange;
+            }
+
+            &.Mild-obesity,
+            &.Moderate-obesity {
+                border-color: $base-orange-dk;
+            }
+
+            &.Severe-obesity {
+                border-color: $base-red;
+            }
+
+            li {
+                font-size: 12px;
+                color: $base-gray-dk;
+
+                span {
+                    display: inline-block;
+                    color: $base-gray;
+                    font-size: 1.3rem;
+                    padding-left: .5rem;
+                }
+
+                &.time {
+                    padding-bottom: 2px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:576px) {
+    .content .data-list ul {
+        @include flex(row, wrap);
+
+        li {
+            width: 100%;
+
+            .BMI-type {
+                padding-left: 0;
+            }
+        }
+    }
+}

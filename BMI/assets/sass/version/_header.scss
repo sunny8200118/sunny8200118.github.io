@@ -1,0 +1,203 @@
+header {
+    background-color: $base-gray-dk;
+    padding: 4.5rem;
+
+    .logo {
+        text-align: right;
+    }
+
+    .BMI-form {
+        label {
+            color: $base-yellow;
+            font-size: 1.2rem;
+        }
+
+        input {
+            background-color: rgba(255, 255, 255, 0.18);
+            color: rgba(255, 255, 255, 0.5);
+            border: 1px solid $base-yellow;
+            @include border-radius(10px);
+            font-size: 1.5rem;
+        }
+    }
+
+    .submit-btn {
+        color: $base-gray-dk;
+        background: $base-yellow;
+        width: 120px;
+        height: 120px;
+        @include border-radius(50%);
+        font-size: 1.5rem;
+
+        &:hover {
+            @include shadow(0px 1px 6px 3px rgba(255, 197, 50, 0.64));
+        }
+
+        &:focus {
+            @include shadow(none);
+        }
+
+        &:active {
+            background: $base-yellow-dk;
+            @include shadow(none);
+        }
+    }
+
+    .results-block {
+        display: none;
+        @include align-item(center);
+
+        .results {
+            width: 130px;
+            height: 130px;
+            border: 6px solid;
+            @include border-radius(50%);
+            text-align: center;
+            position: relative;
+            padding: 2.5rem 0 2rem;
+
+            h1 {
+                font-size: 2rem;
+                margin-bottom: .25rem;
+                padding-left: 0;
+            }
+
+            p {
+                font-size: 1rem;
+                margin-bottom: 0;
+            }
+
+            .return {
+                border: 3px solid $base-gray-dk;
+                @include border-radius(50%);
+                position: absolute;
+                right: -5%;
+                bottom: -5%;
+            }
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            padding-left: 1rem;
+        }
+
+        &.ideal {
+            .results {
+                border-color: $base-green;
+
+                h1,
+                p {
+                    color: $base-green;
+                }
+
+                .return {
+                    background-color: $base-green;
+                }
+            }
+
+            h1 {
+                color: $base-green;
+            }
+        }
+
+        &.underweight {
+            .results {
+                border-color: $base-blue;
+
+                h1,
+                p {
+                    color: $base-blue;
+                }
+
+                .return {
+                    background-color: $base-blue;
+                }
+            }
+
+            h1 {
+                color: $base-blue;
+            }
+        }
+
+        &.overweight {
+            .results {
+                border-color: $base-orange;
+
+                h1,
+                p {
+                    color: $base-orange;
+                }
+
+                .return {
+                    background-color: $base-orange;
+                }
+            }
+
+            h1 {
+                color: $base-orange;
+            }
+        }
+
+        &.Mild-obesity,
+        &.Moderate-obesity {
+            .results {
+                border-color: $base-orange-dk;
+
+                h1,
+                p {
+                    color: $base-orange-dk;
+                }
+
+                .return {
+                    background-color: $base-orange-dk;
+                }
+            }
+
+            h1 {
+                color: $base-orange-dk;
+            }
+        }
+
+        &.Severe-obesity {
+            .results {
+                border-color: $base-red;
+
+                h1,
+                p {
+                    color: $base-red;
+                }
+
+                .return {
+                    background-color: $base-red;
+                }
+            }
+
+            h1 {
+                color: $base-red;
+            }
+        }
+    }
+}
+
+@media (max-width:992px) {
+    header {
+        padding: 4.5rem 1rem;
+
+        .logo,
+        .submit {
+            text-align: center;
+        }
+
+        .logo {
+            padding-bottom: 1rem;
+        }
+
+        .submit {
+            padding-top: 1rem;
+        }
+
+        .justify-content-responsive {
+            @include justify-content(center);
+        }
+    }
+}

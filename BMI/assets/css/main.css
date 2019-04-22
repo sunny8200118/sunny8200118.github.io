@@ -1,0 +1,269 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+*,
+*:active,
+*:focus,
+*:hover,
+*:link,
+*:visited {
+  -o-transition: background-color 0.2s linear, border-color 0.1s linear;
+  -webkit-transition: background-color 0.2s linear, border-color 0.1s linear;
+  -moz-transition: background-color 0.2s linear, border-color 0.1s linear;
+  transition: background-color 0.2s linear, border-color 0.1s linear; }
+
+/* ------- 標頭設計(字級,字距,顏色) ------- */
+html {
+  font-size: 15px; }
+
+body {
+  font-family: arial,'Noto Sans TC','微軟正黑體', sans-serif; }
+
+header {
+  background-color: #424242;
+  padding: 4.5rem; }
+  header .logo {
+    text-align: right; }
+  header .BMI-form label {
+    color: #FFD366;
+    font-size: 1.2rem; }
+  header .BMI-form input {
+    background-color: rgba(255, 255, 255, 0.18);
+    color: rgba(255, 255, 255, 0.5);
+    border: 1px solid #FFD366;
+    -ms-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    font-size: 1.5rem; }
+  header .submit-btn {
+    color: #424242;
+    background: #FFD366;
+    width: 120px;
+    height: 120px;
+    -ms-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    font-size: 1.5rem; }
+    header .submit-btn:hover {
+      -webkit-box-shadow: 0px 1px 6px 3px rgba(255, 197, 50, 0.64);
+      -ms-box-shadow: 0px 1px 6px 3px rgba(255, 197, 50, 0.64);
+      box-shadow: 0px 1px 6px 3px rgba(255, 197, 50, 0.64); }
+    header .submit-btn:focus {
+      -webkit-box-shadow: none;
+      -ms-box-shadow: none;
+      box-shadow: none; }
+    header .submit-btn:active {
+      background: #DEA821;
+      -webkit-box-shadow: none;
+      -ms-box-shadow: none;
+      box-shadow: none; }
+  header .results-block {
+    display: none;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center; }
+    header .results-block .results {
+      width: 130px;
+      height: 130px;
+      border: 6px solid;
+      -ms-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      text-align: center;
+      position: relative;
+      padding: 2.5rem 0 2rem; }
+      header .results-block .results h1 {
+        font-size: 2rem;
+        margin-bottom: .25rem;
+        padding-left: 0; }
+      header .results-block .results p {
+        font-size: 1rem;
+        margin-bottom: 0; }
+      header .results-block .results .return {
+        border: 3px solid #424242;
+        -ms-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        position: absolute;
+        right: -5%;
+        bottom: -5%; }
+    header .results-block h1 {
+      font-size: 1.8rem;
+      padding-left: 1rem; }
+    header .results-block.ideal .results {
+      border-color: #86D73F; }
+      header .results-block.ideal .results h1,
+      header .results-block.ideal .results p {
+        color: #86D73F; }
+      header .results-block.ideal .results .return {
+        background-color: #86D73F; }
+    header .results-block.ideal h1 {
+      color: #86D73F; }
+    header .results-block.underweight .results {
+      border-color: #31BAF9; }
+      header .results-block.underweight .results h1,
+      header .results-block.underweight .results p {
+        color: #31BAF9; }
+      header .results-block.underweight .results .return {
+        background-color: #31BAF9; }
+    header .results-block.underweight h1 {
+      color: #31BAF9; }
+    header .results-block.overweight .results {
+      border-color: #FF982D; }
+      header .results-block.overweight .results h1,
+      header .results-block.overweight .results p {
+        color: #FF982D; }
+      header .results-block.overweight .results .return {
+        background-color: #FF982D; }
+    header .results-block.overweight h1 {
+      color: #FF982D; }
+    header .results-block.Mild-obesity .results, header .results-block.Moderate-obesity .results {
+      border-color: #FF6C03; }
+      header .results-block.Mild-obesity .results h1,
+      header .results-block.Mild-obesity .results p, header .results-block.Moderate-obesity .results h1,
+      header .results-block.Moderate-obesity .results p {
+        color: #FF6C03; }
+      header .results-block.Mild-obesity .results .return, header .results-block.Moderate-obesity .results .return {
+        background-color: #FF6C03; }
+    header .results-block.Mild-obesity h1, header .results-block.Moderate-obesity h1 {
+      color: #FF6C03; }
+    header .results-block.Severe-obesity .results {
+      border-color: #FF1200; }
+      header .results-block.Severe-obesity .results h1,
+      header .results-block.Severe-obesity .results p {
+        color: #FF1200; }
+      header .results-block.Severe-obesity .results .return {
+        background-color: #FF1200; }
+    header .results-block.Severe-obesity h1 {
+      color: #FF1200; }
+
+@media (max-width: 992px) {
+  header {
+    padding: 4.5rem 1rem; }
+    header .logo,
+    header .submit {
+      text-align: center; }
+    header .logo {
+      padding-bottom: 1rem; }
+    header .submit {
+      padding-top: 1rem; }
+    header .justify-content-responsive {
+      -webkit-justify-content: center;
+      -moz-justify-content: center;
+      -o-flex-justify-content: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -ms-flex-pack: center; } }
+
+footer {
+  background-color: #FFD366;
+  padding: 1rem; }
+
+.main {
+  background: #f5f5f5;
+  min-height: 50vh; }
+
+.content {
+  padding: 3rem 0; }
+  .content h2 {
+    font-size: 1.5rem;
+    color: #424242;
+    font-weight: 400;
+    text-align: center;
+    padding-bottom: 2rem; }
+  .content .data-list ul {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -o-flex-justify-content: space-between;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -ms-flex-pack: justify;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    background: #fff;
+    border-left: 7px solid;
+    padding: 1.4rem;
+    margin-bottom: 1rem;
+    position: relative; }
+    .content .data-list ul::before {
+      content: "移除";
+      display: block;
+      position: absolute;
+      font-size: 1.3rem;
+      padding: 1.4rem;
+      width: calc(100% + 7px);
+      height: 100%;
+      color: #fff;
+      background-color: #424242;
+      top: 0;
+      left: -7px;
+      text-align: center;
+      opacity: 0;
+      -webkit-transition: all 0.2s;
+      -moz-transition: all 0.2s;
+      -o-transition: all 0.2s;
+      -ms-transform: all 0.2s;
+      transition: all 0.2s; }
+    .content .data-list ul:hover::before {
+      opacity: 1;
+      -webkit-transition: all 0.2s;
+      -moz-transition: all 0.2s;
+      -o-transition: all 0.2s;
+      -ms-transform: all 0.2s;
+      transition: all 0.2s; }
+    .content .data-list ul.ideal {
+      border-color: #86D73F; }
+    .content .data-list ul.underweight {
+      border-color: #31BAF9; }
+    .content .data-list ul.overweight {
+      border-color: #FF982D; }
+    .content .data-list ul.Mild-obesity, .content .data-list ul.Moderate-obesity {
+      border-color: #FF6C03; }
+    .content .data-list ul.Severe-obesity {
+      border-color: #FF1200; }
+    .content .data-list ul li {
+      font-size: 12px;
+      color: #424242; }
+      .content .data-list ul li span {
+        display: inline-block;
+        color: #4A4A4A;
+        font-size: 1.3rem;
+        padding-left: .5rem; }
+      .content .data-list ul li.time {
+        padding-bottom: 2px; }
+
+@media (max-width: 576px) {
+  .content .data-list ul {
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    -o-flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -o-flex-wrap: wrap;
+    flex-wrap: wrap; }
+    .content .data-list ul * {
+      -ms-flex: 0 1 auto; }
+    .content .data-list ul li {
+      width: 100%; }
+      .content .data-list ul li .BMI-type {
+        padding-left: 0; } }
+
+@-moz-document url-prefix() {}
+
+/*# sourceMappingURL=main.css.map */
