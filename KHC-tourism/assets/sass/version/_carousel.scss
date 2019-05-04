@@ -1,0 +1,16 @@
+#topcontrol {
+    width: 50px;
+    height: 50px;
+    background: $base-purple;
+    @include border-radius(50%);
+
+    &:before {
+        @include fa-icon("\f062", $icon);
+        display: block;
+        position: absolute;
+        color: #fff;
+        top: 50%;
+        left: 50%;
+        @include TF(translate(-50%, -50%));
+    }
+}

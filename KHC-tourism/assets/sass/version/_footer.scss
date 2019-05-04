@@ -1,0 +1,15 @@
+footer {
+    padding: 1rem 0;
+    text-align: center;
+    background: $base-blue;
+    p{
+        color: #fff;
+    }
+    .text-color-yellow{
+        color: $base-yellow;
+        margin-bottom: 0;
+        a{
+            color: $base-yellow; 
+        }
+    }
+}
