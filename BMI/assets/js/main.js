@@ -2,7 +2,7 @@ var submitBtn = document.querySelector('.submit-btn');
 var returnBtn = document.querySelector('.return');
 var resultsEl = document.querySelector('.results-block');
 var list = document.querySelector('.data-list');
-var data = JSON.parse(localStorage.getItem('BMIList')) || [{}];
+var data = JSON.parse(localStorage.getItem('BMIList')) || [];
 updateList();
 // 判斷BMI值，並顯示於下方清單
 function checkBMI() {
