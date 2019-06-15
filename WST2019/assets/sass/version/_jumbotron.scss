@@ -1,0 +1,48 @@
+.wrapper {
+    background: url("../img/bg.jpg") no-repeat top center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    .jumbotron {
+        height: 135vh;
+        width: 100%;
+        // border-top: 45vh solid $base-bg;
+        // border-left: 10vw solid $base-bg;
+        // border-right: 10vw solid $base-bg;
+        position: relative;
+        background-color: transparent;
+        margin: 0;
+        @include border-radius(0);
+
+        .kv-title {
+            display: block;
+            position: absolute;
+            width: 73%;
+            top: -10rem;
+            left: 50%;
+            @include TF(translateX(-50%));
+        }
+
+        .left,
+        .right {
+            position: absolute;
+            top: 57%;
+            @include TF(translateY(-50%) rotate(90deg));
+            width: 250px;
+
+            p,
+            a {
+                color: $base-color;
+                margin: 0;
+            }
+        }
+
+        .left {
+            left: -17%;
+        }
+
+        .right {
+            right: -17%;
+        }
+    }
+}

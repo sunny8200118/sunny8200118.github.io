@@ -1,0 +1,40 @@
+.b-title{
+    font-weight: 500;
+    font-size: 1.7rem;
+    color: $base-color;
+}
+.l-title {
+    color: $base-color;
+    margin-bottom: 2rem;
+    position: relative;
+    font-size: 1.4rem;
+
+    &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 1px;
+        top: 50%;
+        left: calc(-100% - 1rem);
+        background-color: $base-color;
+    }
+
+    // span{
+    //     display: block;
+    //     font-size: 1rem;
+    //     color:$base-gray;
+    //     padding-top: .5rem;
+    // }
+    //     &::before {
+    //         content: "";
+    //         position: absolute;
+    //         display: block;
+    //         top: -1rem;
+    //         left: -1rem;
+    //         width: 6px;
+    //         height: 6px;
+    //         background: $base-gold;
+    //         @include TF(rotate(45deg));
+    //     }
+}

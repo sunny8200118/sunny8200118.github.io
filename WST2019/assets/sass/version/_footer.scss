@@ -1,0 +1,23 @@
+footer {
+    a {
+        display: inline-block;
+        color: $base-color;
+        position: relative;
+
+        &:hover {
+            // text-decoration: none;
+            color: $base-color;
+        }
+        // &::before {
+        //     content: "";
+        //     display: block;
+        //     position: absolute;
+        //     background: $base-color;
+        //     width: 1px;
+        //     height: 2rem;
+        //     left: 50%;
+        //     bottom: 0;
+        //     @include TF(translateX(-50%));
+        // }
+    }
+}
