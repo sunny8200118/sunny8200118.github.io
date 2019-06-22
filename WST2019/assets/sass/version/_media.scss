@@ -13,6 +13,7 @@
 }
 
 @media (max-width:992px) {
+
     // .wrapper{
     //     .jumbotron {
     //         border-width: 35vh 10vw 35vh 10vw;
@@ -32,6 +33,7 @@
         nav {
             ul {
                 display: none;
+                opacity: 0;
             }
         }
     }
@@ -82,6 +84,7 @@
                     z-index: 2000;
                     background-color: $base-color;
                     @include TS(all, .2s);
+                    opacity: 1;
 
                     &::before {
                         display: none;
@@ -151,7 +154,9 @@
 
 @media (max-width:575px) {
     .wrapper {
-        background-size: 200vh;
+        background: url("../img/bg.jpg") no-repeat bottom center;
+        background-size: cover;
+        background-attachment: fixed;
         .jumbotron {
             height: 90vh;
             // border-bottom: 10vh solid $base-bg;
@@ -183,36 +188,46 @@
             left: 1rem;
         }
     }
-    .opacity-bg::before{
+
+    .opacity-bg::before {
         opacity: .85;
     }
-    #bunny-logo{
-        #head{
-            @include TF(translate(0%,0%));
+
+    #bunny-logo {
+        #head {
+            @include TF(translate(0%, 0%));
         }
-        #ear01{
-            @include TF(translate(0%,0%));
+
+        #ear01 {
+            @include TF(translate(0%, 0%));
         }
-        #ear02{
-            @include TF(translate(0%,0%));
+
+        #ear02 {
+            @include TF(translate(0%, 0%));
         }
-        #neck{
-            @include TF(translate(0%,0%));
+
+        #neck {
+            @include TF(translate(0%, 0%));
         }
-        #hand{
-            @include TF(translate(0%,0%));
+
+        #hand {
+            @include TF(translate(0%, 0%));
         }
-        #body01{
-            @include TF(translate(0%,0%));
+
+        #body01 {
+            @include TF(translate(0%, 0%));
         }
-        #body02{
-            @include TF(translate(0%,0%));
+
+        #body02 {
+            @include TF(translate(0%, 0%));
         }
-        #foot{
-            @include TF(translate(0%,0%));
+
+        #foot {
+            @include TF(translate(0%, 0%));
         }
-        #tail{
-            @include TF(translate(0%,0%));
+
+        #tail {
+            @include TF(translate(0%, 0%));
         }
     }
 }

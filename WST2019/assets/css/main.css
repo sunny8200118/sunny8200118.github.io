@@ -416,7 +416,8 @@ section {
   header {
     position: relative; }
     header nav ul {
-      display: none; }
+      display: none;
+      opacity: 0; }
   .open header {
     position: static; }
     .open header nav .menu-btn {
@@ -492,7 +493,8 @@ section {
       -moz-transition: all, 0.2s;
       -o-transition: all, 0.2s;
       -ms-transform: all, 0.2s;
-      transition: all, 0.2s; }
+      transition: all, 0.2s;
+      opacity: 1; }
       .open header nav ul * {
         -ms-flex: 0 1 auto; }
       .open header nav ul::before {
@@ -534,7 +536,9 @@ section {
 
 @media (max-width: 575px) {
   .wrapper {
-    background-size: 200vh; }
+    background: url("../img/bg.jpg") no-repeat bottom center;
+    background-size: cover;
+    background-attachment: fixed; }
     .wrapper .jumbotron {
       height: 90vh;
       border-width: 20vh 15vw 10vh 15vw; }
