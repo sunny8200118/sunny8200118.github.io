@@ -128,3 +128,32 @@ section {
         }
     }
 }
+#bunny-logo{
+    #head{
+        @include TF(translate(100%,-50%));
+    }
+    #ear01{
+        @include TF(translate(130%,-70%));
+    }
+    #ear02{
+        @include TF(translate(-100%,-80%));
+    }
+    #neck{
+        @include TF(translate(70%,-130%));
+    }
+    #hand{
+        @include TF(translate(100%,-50%));
+    }
+    #body01{
+        @include TF(translate(150%,-80%));
+    }
+    #body02{
+        @include TF(translate(-80%,-110%));
+    }
+    #foot{
+        @include TF(translate(70%,-200%));
+    }
+    #tail{
+        @include TF(translate(-30%,-150%));
+    }
+}

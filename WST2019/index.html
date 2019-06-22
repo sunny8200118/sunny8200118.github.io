@@ -49,10 +49,9 @@
   </div>
   <div class="wrapper">
     <div data-400="background-color: rgba(238, 232, 218, 0);" data-500="background-color: rgba(238, 232, 218, 0.85);">
-        <div class="jumbotron" id="main-visual-border"
-        data-0="height: 135vh;border-top: 45vh solid #eee8da;border-left: 10vw solid #eee8da;border-right: 10vw solid #eee8da;border-bottom: 45vh solid #eee8da;"
-        data-500="height: 100vh;border-top: 0vh solid #eee8da;border-left: 0vw solid #eee8da;border-right: 0vw solid #eee8da;border-bottom: 0vh solid #eee8da;">
-        <img src="./assets/img/kv-title.png" alt="前端 Weng Shih Ting" class="img-fluid kv-title">
+      <div class="jumbotron" id="main-visual-border" data-0="height: 135vh;border-width: 45vh 10vw 45vh 10vw;"
+        data-500="height: 100vh;border-width: 0vh 0vw 0vh 0vw;">
+        <img src="./assets/img/kv-title.png" alt="前端 Weng Shih Ting" class="img-fluid kv-title wow fadeIn" data-wow-duration="1.5s">
         <div class="left">
           <p>Thank you for stopping by.</p>
         </div>
@@ -69,7 +68,7 @@
                   <img src="./assets/img/my-photo.jpg" alt="Weng Shih Ting photo" class="img-fluid">
                 </div>
                 <h2 class="mb-lg-4 mb-3 b-title">翁詩婷 / WENG SHIH-TING</h2>
-                <p>一年多網頁開發經驗，熟悉RWD響應式網頁設計<br/>為優化使用者體驗與提昇網頁效能，<br/>我樂於接受挑戰並積極吸收新知，<br/>目前正尋找網頁前端工作機會。</p>
+                <p>一年多網頁開發經驗，熟悉RWD響應式網頁設計<br />為優化使用者體驗與提昇網頁效能，<br />我樂於接受挑戰並積極吸收新知，<br />目前正尋找網頁前端工作機會。</p>
               </div>
             </div>
           </div>
@@ -103,7 +102,26 @@
           </div>
           <div class="col-lg-4 col-md-6 mb-3">
             <div class="bg-light p-5">
-              <img src="./assets/img/logo-v3.svg" alt="logo" class="img-fluid">
+              <svg version="1.1" id="bunny-logo" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 490.2 373.9"
+                style="enable-background:new 0 0 490.2 373.9;overflow: visible;" xml:space="preserve">
+                <style type="text/css">
+                  .st0 {
+                    fill: #243B4A;
+                  }
+                </style>
+                <g id="bunny-logo_1_">
+                  <polygon id="head" class="st0" points="73.5,77.5 137.7,67 202.7,151.6 77.4,226.4 0,172 	" data-600-top ="transform:translate(100%,-50%);"data-400-top ="transform:translate(0%,0%);"/>
+                  <polygon id="ear02" class="st0" points="144.3,59.1 235.5,15.2 317.5,34.2 169.9,93.3 	" data-600-top ="transform:translate(130%,-70%);"data-400-top ="transform:translate(0%,0%);"/>
+                  <polygon id="ear01" class="st0" points="110.8,63.7 223,12.2 170.5,0 	" data-600-top ="transform:translate(-100%,-80%);"data-400-top ="transform:translate(0%,0%);"/>
+                  <polygon id="neck" class="st0" points="84.8,239.9 211,154.3 106.8,289.4 	" data-600-top ="transform:translate(70%,-130%);"data-400-top ="transform:translate(0%,0%);"/>
+                  <polygon id="hand" class="st0" points="210,167 110.8,299.6 144.3,373.9 	" data-600-top ="transform:translate(100%,-50%);"data-400-top ="transform:translate(0%,0%);"/>
+                  <polygon id="body01" class="st0" points="218.6,153 361.5,139.4 439.2,231.1 176.9,311 	" data-600-top ="transform:translate(150%,-80%);"data-400-top ="transform:translate(0%,0%);"/>
+                  <polygon id="body02" class="st0" points="230.9,311 442.5,241.2 395.3,365.7 	" data-600-top ="transform:translate(-80%,-110%);"data-400-top ="transform:translate(0%,0%);"/>
+                  <polygon id="foot" class="st0" points="176.9,373.9 223.9,323.5 388.3,373.6 	" data-600-top ="transform:translate(70%,-200%);"data-400-top ="transform:translate(0%,0%);"/>
+                  <polygon id="tail" class="st0" points="451.4,244.6 433.3,294.9 490.2,290.8 	" data-600-top ="transform:translate(-30%,-150%);"data-400-top ="transform:translate(0%,0%);"/>
+                </g>
+              </svg>
             </div>
             <h2 class="text-center my-3 b-title">JavaScript</h2>
             <ul class="skill-list">
@@ -280,12 +298,30 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="assets/plugins/bootstrap4/js/bootstrap.js"></script>
   <!-- JS 視差滾動 -->
+  <!-- <script>
+    var windowInnerWidth = window.innerWidth;
+    var jumbotron = document.getElementById('main-visual-border');
+    if (windowInnerWidth <= 576) {
+      jumbotron.dataset[0] = 'height: 130vh; width: 100vw;border-width: 20vh 15vw 10vh 15vw;';
+      jumbotron.dataset[500] = 'height: 100vh; width: 100vw;border-width: 0vh 0vw 0vh 0vw;';
+    }else{
+      jumbotron.dataset[0] = 'height: 135vh;border-width: 45vh 10vw 45vh 10vw;';
+      jumbotron.dataset[500] = 'height: 100vh;border-width: 0vh 0vw 0vh 0vw;';
+    }
+  </script> -->
   <script type="text/javascript" src="./assets/plugins/skrollr.js"></script>
   <script src="assets/plugins/wow/wow.js"></script>
   <!-- JS Customization -->
   <script src="assets/js/main.js"></script>
   <script type="text/javascript">
-    var s = skrollr.init();
+    $(function () {
+      var windowWidth = window.innerWidth;
+      if (windowWidth > 576) {
+        skrollr.init({
+          forceHeight: false
+        });
+      }
+    });
   </script>
   <script>
     new WOW().init();

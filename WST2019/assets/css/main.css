@@ -131,10 +131,14 @@ footer a {
 .wrapper {
   background: url("../img/bg.jpg") no-repeat top center;
   background-size: cover;
-  background-attachment: fixed; }
+  background-attachment: fixed;
+  overflow: hidden; }
   .wrapper .jumbotron {
     height: 135vh;
     width: 100%;
+    border-color: #eee8da;
+    border-style: solid;
+    border-width: 45vh 10vw 45vh 10vw;
     position: relative;
     background-color: transparent;
     margin: 0;
@@ -335,6 +339,69 @@ section {
         -ms-transform: all, 0.2s;
         transition: all, 0.2s; }
 
+#bunny-logo #head {
+  -moz-transform: translate(100%, -50%);
+  -webkit-transform: translate(100%, -50%);
+  -o-transform: translate(100%, -50%);
+  -ms-transform: translate(100%, -50%);
+  transform: translate(100%, -50%); }
+
+#bunny-logo #ear01 {
+  -moz-transform: translate(130%, -70%);
+  -webkit-transform: translate(130%, -70%);
+  -o-transform: translate(130%, -70%);
+  -ms-transform: translate(130%, -70%);
+  transform: translate(130%, -70%); }
+
+#bunny-logo #ear02 {
+  -moz-transform: translate(-100%, -80%);
+  -webkit-transform: translate(-100%, -80%);
+  -o-transform: translate(-100%, -80%);
+  -ms-transform: translate(-100%, -80%);
+  transform: translate(-100%, -80%); }
+
+#bunny-logo #neck {
+  -moz-transform: translate(70%, -130%);
+  -webkit-transform: translate(70%, -130%);
+  -o-transform: translate(70%, -130%);
+  -ms-transform: translate(70%, -130%);
+  transform: translate(70%, -130%); }
+
+#bunny-logo #hand {
+  -moz-transform: translate(100%, -50%);
+  -webkit-transform: translate(100%, -50%);
+  -o-transform: translate(100%, -50%);
+  -ms-transform: translate(100%, -50%);
+  transform: translate(100%, -50%); }
+
+#bunny-logo #body01 {
+  -moz-transform: translate(150%, -80%);
+  -webkit-transform: translate(150%, -80%);
+  -o-transform: translate(150%, -80%);
+  -ms-transform: translate(150%, -80%);
+  transform: translate(150%, -80%); }
+
+#bunny-logo #body02 {
+  -moz-transform: translate(-80%, -110%);
+  -webkit-transform: translate(-80%, -110%);
+  -o-transform: translate(-80%, -110%);
+  -ms-transform: translate(-80%, -110%);
+  transform: translate(-80%, -110%); }
+
+#bunny-logo #foot {
+  -moz-transform: translate(70%, -200%);
+  -webkit-transform: translate(70%, -200%);
+  -o-transform: translate(70%, -200%);
+  -ms-transform: translate(70%, -200%);
+  transform: translate(70%, -200%); }
+
+#bunny-logo #tail {
+  -moz-transform: translate(-30%, -150%);
+  -webkit-transform: translate(-30%, -150%);
+  -o-transform: translate(-30%, -150%);
+  -ms-transform: translate(-30%, -150%);
+  transform: translate(-30%, -150%); }
+
 @media (max-width: 1024px) {
   .wrapper .jumbotron .left {
     left: -22%; }
@@ -468,7 +535,6 @@ section {
 @media (max-width: 575px) {
   .wrapper .jumbotron {
     height: 90vh;
-    border-bottom: 10vh solid #eee8da;
     border-width: 20vh 15vw 10vh 15vw; }
     .wrapper .jumbotron .kv-title {
       width: 100%;
@@ -492,7 +558,9 @@ section {
       transform: translateY(0) rotate(90deg); }
   .my-photo::before {
     top: 1rem;
-    left: 1rem; } }
+    left: 1rem; }
+  .opacity-bg::before {
+    opacity: .85; } }
 
 @-moz-document url-prefix() {}
 

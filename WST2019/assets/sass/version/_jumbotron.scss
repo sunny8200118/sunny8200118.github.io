@@ -2,6 +2,7 @@
     background: url("../img/bg.jpg") no-repeat top center;
     background-size: cover;
     background-attachment: fixed;
+    overflow: hidden;
 
     .jumbotron {
         height: 135vh;
@@ -9,6 +10,9 @@
         // border-top: 45vh solid $base-bg;
         // border-left: 10vw solid $base-bg;
         // border-right: 10vw solid $base-bg;
+        border-color: $base-bg;
+        border-style: solid;
+        border-width: 45vh 10vw 45vh 10vw;
         position: relative;
         background-color: transparent;
         margin: 0;
