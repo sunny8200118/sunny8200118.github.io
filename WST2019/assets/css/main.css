@@ -531,7 +531,7 @@ section {
 
 @media (max-width: 575px) {
   .wrapper {
-    background: url("../img/bg-sm.jpg") no-repeat bottom center;
+    background: url("../img/bg-sm.jpg") no-repeat top center;
     background-size: 165%;
     background-attachment: fixed; }
     .wrapper .jumbotron {
