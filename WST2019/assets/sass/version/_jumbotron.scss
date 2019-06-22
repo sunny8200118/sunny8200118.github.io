@@ -20,11 +20,13 @@
 
         .kv-title {
             display: block;
-            position: absolute;
+            position: relative;
+            margin: 0 auto;
             width: 73%;
             top: -10rem;
-            left: 50%;
-            @include TF(translateX(-50%));
+             // position: absolute;
+            // left: 50%;
+            // @include TF(translateX(-50%));
         }
 
         .left,

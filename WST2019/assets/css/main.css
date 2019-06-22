@@ -148,15 +148,10 @@ footer a {
     border-radius: 0; }
     .wrapper .jumbotron .kv-title {
       display: block;
-      position: absolute;
+      position: relative;
+      margin: 0 auto;
       width: 73%;
-      top: -10rem;
-      left: 50%;
-      -moz-transform: translateX(-50%);
-      -webkit-transform: translateX(-50%);
-      -o-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-      transform: translateX(-50%); }
+      top: -10rem; }
     .wrapper .jumbotron .left,
     .wrapper .jumbotron .right {
       position: absolute;
@@ -537,7 +532,7 @@ section {
 @media (max-width: 575px) {
   .wrapper {
     background: url("../img/bg.jpg") no-repeat bottom center;
-    background-size: cover;
+    background-size: 165%;
     background-attachment: fixed; }
     .wrapper .jumbotron {
       height: 90vh;
