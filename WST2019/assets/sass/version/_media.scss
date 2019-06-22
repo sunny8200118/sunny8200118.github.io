@@ -32,7 +32,15 @@
 
         nav {
             ul {
-                display: none;
+                @include flexbox;
+                @include flex(column, nowrap);
+                @include align-item(center);
+                @include justify-content(center);
+                position: absolute;
+                width: 0;
+                height: 100vh;
+                top: 0;
+                left: 0;
                 opacity: 0;
             }
         }
@@ -71,16 +79,7 @@
                 }
 
                 ul {
-                    @include flexbox;
-                    @include flex(column, nowrap);
-                    @include align-item(center);
-                    @include justify-content(center);
-                    position: absolute;
                     width: 100vw;
-                    height: 100vh;
-                    top: 0;
-                    left: 50%;
-                    @include TF(translateX(-50%));
                     z-index: 2000;
                     background-color: $base-color;
                     @include TS(all, .2s);

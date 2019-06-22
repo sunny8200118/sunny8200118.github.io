@@ -411,8 +411,41 @@ section {
   header {
     position: relative; }
     header nav ul {
-      display: none;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-direction: column;
+      -moz-flex-direction: column;
+      -ms-flex-direction: column;
+      -o-flex-direction: column;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      flex-direction: column;
+      -webkit-flex-wrap: nowrap;
+      -moz-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+      -o-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-justify-content: center;
+      -moz-justify-content: center;
+      -o-flex-justify-content: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -ms-flex-pack: center;
+      position: absolute;
+      width: 0;
+      height: 100vh;
+      top: 0;
+      left: 0;
       opacity: 0; }
+      header nav ul * {
+        -ms-flex: 0 1 auto; }
   .open header {
     position: static; }
     .open header nav .menu-btn {
@@ -445,43 +478,7 @@ section {
           transform: rotate(135deg);
           top: 0; }
     .open header nav ul {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-flex-direction: column;
-      -moz-flex-direction: column;
-      -ms-flex-direction: column;
-      -o-flex-direction: column;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      flex-direction: column;
-      -webkit-flex-wrap: nowrap;
-      -moz-flex-wrap: nowrap;
-      -ms-flex-wrap: nowrap;
-      -o-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-      -webkit-align-items: center;
-      align-items: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      -webkit-justify-content: center;
-      -moz-justify-content: center;
-      -o-flex-justify-content: center;
-      -webkit-box-pack: center;
-      justify-content: center;
-      -ms-flex-pack: center;
-      position: absolute;
       width: 100vw;
-      height: 100vh;
-      top: 0;
-      left: 50%;
-      -moz-transform: translateX(-50%);
-      -webkit-transform: translateX(-50%);
-      -o-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-      transform: translateX(-50%);
       z-index: 2000;
       background-color: #243b4a;
       -webkit-transition: all, 0.2s;
@@ -490,8 +487,6 @@ section {
       -ms-transform: all, 0.2s;
       transition: all, 0.2s;
       opacity: 1; }
-      .open header nav ul * {
-        -ms-flex: 0 1 auto; }
       .open header nav ul::before {
         display: none; }
       .open header nav ul li {
