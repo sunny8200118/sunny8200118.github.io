@@ -154,7 +154,7 @@
 
 @media (max-width:575px) {
     .wrapper {
-        background: url("../img/bg.jpg") no-repeat bottom center;
+        background: url("../img/bg-sm.jpg") no-repeat bottom center;
         background-size: 165%;
         background-attachment: fixed;
         .jumbotron {
@@ -164,9 +164,10 @@
 
             .kv-title {
                 width: 100%;
-                top: -4rem;
-                left: 60%;
-                @include TF(scale(1.2)translateX(-50%));
+                top: -5.5rem;
+                // left: 60%;
+                // @include TF(scale(1.2)translateX(-50%));
+                @include TF(scale(1.2));
             }
 
             .left {

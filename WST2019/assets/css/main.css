@@ -531,7 +531,7 @@ section {
 
 @media (max-width: 575px) {
   .wrapper {
-    background: url("../img/bg.jpg") no-repeat bottom center;
+    background: url("../img/bg-sm.jpg") no-repeat bottom center;
     background-size: 165%;
     background-attachment: fixed; }
     .wrapper .jumbotron {
@@ -539,13 +539,12 @@ section {
       border-width: 20vh 15vw 10vh 15vw; }
       .wrapper .jumbotron .kv-title {
         width: 100%;
-        top: -4rem;
-        left: 60%;
-        -moz-transform: scale(1.2) translateX(-50%);
-        -webkit-transform: scale(1.2) translateX(-50%);
-        -o-transform: scale(1.2) translateX(-50%);
-        -ms-transform: scale(1.2) translateX(-50%);
-        transform: scale(1.2) translateX(-50%); }
+        top: -5.5rem;
+        -moz-transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2); }
       .wrapper .jumbotron .left {
         display: none; }
       .wrapper .jumbotron .right {
