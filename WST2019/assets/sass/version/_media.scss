@@ -151,6 +151,7 @@
 
 @media (max-width:575px) {
     .wrapper {
+        background-size: 200vh;
         .jumbotron {
             height: 90vh;
             // border-bottom: 10vh solid $base-bg;
@@ -184,5 +185,34 @@
     }
     .opacity-bg::before{
         opacity: .85;
+    }
+    #bunny-logo{
+        #head{
+            @include TF(translate(0%,0%));
+        }
+        #ear01{
+            @include TF(translate(0%,0%));
+        }
+        #ear02{
+            @include TF(translate(0%,0%));
+        }
+        #neck{
+            @include TF(translate(0%,0%));
+        }
+        #hand{
+            @include TF(translate(0%,0%));
+        }
+        #body01{
+            @include TF(translate(0%,0%));
+        }
+        #body02{
+            @include TF(translate(0%,0%));
+        }
+        #foot{
+            @include TF(translate(0%,0%));
+        }
+        #tail{
+            @include TF(translate(0%,0%));
+        }
     }
 }

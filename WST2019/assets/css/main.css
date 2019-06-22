@@ -533,34 +533,90 @@ section {
     right: -27%; } }
 
 @media (max-width: 575px) {
-  .wrapper .jumbotron {
-    height: 90vh;
-    border-width: 20vh 15vw 10vh 15vw; }
-    .wrapper .jumbotron .kv-title {
-      width: 100%;
-      top: -4rem;
-      left: 60%;
-      -moz-transform: scale(1.2) translateX(-50%);
-      -webkit-transform: scale(1.2) translateX(-50%);
-      -o-transform: scale(1.2) translateX(-50%);
-      -ms-transform: scale(1.2) translateX(-50%);
-      transform: scale(1.2) translateX(-50%); }
-    .wrapper .jumbotron .left {
-      display: none; }
-    .wrapper .jumbotron .right {
-      top: 27vh;
-      right: -55%;
-      z-index: 10000;
-      -moz-transform: translateY(0) rotate(90deg);
-      -webkit-transform: translateY(0) rotate(90deg);
-      -o-transform: translateY(0) rotate(90deg);
-      -ms-transform: translateY(0) rotate(90deg);
-      transform: translateY(0) rotate(90deg); }
+  .wrapper {
+    background-size: 200vh; }
+    .wrapper .jumbotron {
+      height: 90vh;
+      border-width: 20vh 15vw 10vh 15vw; }
+      .wrapper .jumbotron .kv-title {
+        width: 100%;
+        top: -4rem;
+        left: 60%;
+        -moz-transform: scale(1.2) translateX(-50%);
+        -webkit-transform: scale(1.2) translateX(-50%);
+        -o-transform: scale(1.2) translateX(-50%);
+        -ms-transform: scale(1.2) translateX(-50%);
+        transform: scale(1.2) translateX(-50%); }
+      .wrapper .jumbotron .left {
+        display: none; }
+      .wrapper .jumbotron .right {
+        top: 27vh;
+        right: -55%;
+        z-index: 10000;
+        -moz-transform: translateY(0) rotate(90deg);
+        -webkit-transform: translateY(0) rotate(90deg);
+        -o-transform: translateY(0) rotate(90deg);
+        -ms-transform: translateY(0) rotate(90deg);
+        transform: translateY(0) rotate(90deg); }
   .my-photo::before {
     top: 1rem;
     left: 1rem; }
   .opacity-bg::before {
-    opacity: .85; } }
+    opacity: .85; }
+  #bunny-logo #head {
+    -moz-transform: translate(0%, 0%);
+    -webkit-transform: translate(0%, 0%);
+    -o-transform: translate(0%, 0%);
+    -ms-transform: translate(0%, 0%);
+    transform: translate(0%, 0%); }
+  #bunny-logo #ear01 {
+    -moz-transform: translate(0%, 0%);
+    -webkit-transform: translate(0%, 0%);
+    -o-transform: translate(0%, 0%);
+    -ms-transform: translate(0%, 0%);
+    transform: translate(0%, 0%); }
+  #bunny-logo #ear02 {
+    -moz-transform: translate(0%, 0%);
+    -webkit-transform: translate(0%, 0%);
+    -o-transform: translate(0%, 0%);
+    -ms-transform: translate(0%, 0%);
+    transform: translate(0%, 0%); }
+  #bunny-logo #neck {
+    -moz-transform: translate(0%, 0%);
+    -webkit-transform: translate(0%, 0%);
+    -o-transform: translate(0%, 0%);
+    -ms-transform: translate(0%, 0%);
+    transform: translate(0%, 0%); }
+  #bunny-logo #hand {
+    -moz-transform: translate(0%, 0%);
+    -webkit-transform: translate(0%, 0%);
+    -o-transform: translate(0%, 0%);
+    -ms-transform: translate(0%, 0%);
+    transform: translate(0%, 0%); }
+  #bunny-logo #body01 {
+    -moz-transform: translate(0%, 0%);
+    -webkit-transform: translate(0%, 0%);
+    -o-transform: translate(0%, 0%);
+    -ms-transform: translate(0%, 0%);
+    transform: translate(0%, 0%); }
+  #bunny-logo #body02 {
+    -moz-transform: translate(0%, 0%);
+    -webkit-transform: translate(0%, 0%);
+    -o-transform: translate(0%, 0%);
+    -ms-transform: translate(0%, 0%);
+    transform: translate(0%, 0%); }
+  #bunny-logo #foot {
+    -moz-transform: translate(0%, 0%);
+    -webkit-transform: translate(0%, 0%);
+    -o-transform: translate(0%, 0%);
+    -ms-transform: translate(0%, 0%);
+    transform: translate(0%, 0%); }
+  #bunny-logo #tail {
+    -moz-transform: translate(0%, 0%);
+    -webkit-transform: translate(0%, 0%);
+    -o-transform: translate(0%, 0%);
+    -ms-transform: translate(0%, 0%);
+    transform: translate(0%, 0%); } }
 
 @-moz-document url-prefix() {}
 
