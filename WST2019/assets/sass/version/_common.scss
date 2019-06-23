@@ -216,7 +216,8 @@ $wrap: nowrap !default;
 }
 // ------ 色系 (lt:亮, dk:暗)
 $base-color: #243b4a;
-$base-color-op80: #243b4acc;
+// $base-color-op80: #243b4acc;
+$base-color-op80: rgba(36, 59, 74, 0.8);
 $base-gray: #555;
 $base-bg:#eee8da;
 $base-gold:#deb881;

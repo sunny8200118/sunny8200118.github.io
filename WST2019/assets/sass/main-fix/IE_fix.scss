@@ -1,2 +1,9 @@
 // IE10 - 11絕對修正
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @media (max-width:992px){
+        .open header nav ul{
+            left: 50%;
+            @include TF(translateX(-50%));
+        }
+    }
+}
