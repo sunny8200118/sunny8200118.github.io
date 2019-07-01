@@ -6,19 +6,16 @@ xhr.onload = function () {
     const xhrArr = JSON.parse(xhr.responseText);
     const lgAd = document.querySelector('.lg-ad a');
     const lgAdContent = document.createElement('iframe');
-    const lgAdCAttrType = ['width', 'height', 'frameborder'];
-    const lgAdCAttrConten = [(window.innerWidth / 2), (window.innerWidth / 2 / 4 * 3), '0'];
     const AdTitle = document.createElement('h2');
     const AdText = document.createElement('p');
     // 隨機置入大廣告 //
     const num = Math.floor(Math.random() * xhrArr.length);
-
-    function lgAdSetAttribute(attribute, item) {
-        for (let i = 0; i < lgAdCAttrType.length; i++) {
-            attribute = lgAdCAttrType[i];
-            item = lgAdCAttrConten[i];
-            lgAdContent.setAttribute(attribute, item);
-        }
+    lgAd.setAttribute('style',`width:${window.innerWidth / 2}px;height:${window.innerWidth / 2 / 16 * 9}px;`);
+    // 判斷大廣告是否置入成功
+    if(xhrArr[num].success == true){  
+        console.log(`on-ad-loaded:${xhrArr[num].id}`);
+    }else{
+        console.log('on-ad-failed');
     }
     // 判斷type種類
     if (xhrArr[num].type == 'BANNER') {
@@ -38,7 +35,6 @@ xhr.onload = function () {
     AdText.setAttribute('style', `width:${window.innerWidth / 2}px`);
     AdText.textContent = xhrArr[num].description;
 
-    lgAdSetAttribute();
     lgAd.appendChild(lgAdContent);
     lgAd.appendChild(AdTitle);
     lgAd.appendChild(AdText);
@@ -46,6 +42,9 @@ xhr.onload = function () {
 
     function showCloceBtn() {
         closeBtn.style.opacity = '1';
+        if (xhrArr[num].success == true){
+            console.log(xhrArr[num].impression_url);
+        }
     }
     // 關閉按鈕功能
     function closeLgAd() {
@@ -56,7 +55,7 @@ xhr.onload = function () {
     closeBtn.addEventListener('click', closeLgAd, false);
     // END 隨機置入大廣告 //
     // 置入側邊廣告 //
-    var str = '';
+    let str = '';
     for (let i = 0; i < xhrArr.length; i++) {
         if (xhrArr[i].success == true) {
             str += `<div class="ad">
@@ -66,7 +65,6 @@ xhr.onload = function () {
             </div>`;
         }
     }
-    console.log(str);
     document.getElementById('ad-list').innerHTML = str;
     // END 置入側邊廣告 //
 }
