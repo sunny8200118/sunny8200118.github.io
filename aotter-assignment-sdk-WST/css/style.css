@@ -22,7 +22,10 @@ body {
 .lg-ad a:hover {
     text-decoration: none;
 }
-
+.lg-ad a img{
+    max-width: 100%;
+    width: 100%;
+}
 .lg-ad .btn {
     display: block;
     color: #fff;
@@ -57,23 +60,19 @@ body {
 .ad-list {
     margin: 2rem 0 0;
 }
-
+.ad-list a{
+    text-decoration: none;
+}
+.ad-list a:hover {
+    text-decoration: none;
+}
+.ad-list a h2{
+    color: #000;
+}
+.ad-list a p{
+    color: #4a4a4a;
+}
 .ad {
     padding: 1rem 1rem 1rem 0;
     border-bottom: 1px solid #4a4a4a;
 }
-
-/* .lg-ad
-iframe,
-embed,
-object,
-video {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-} */
