@@ -655,15 +655,11 @@ section {
   .coupon {
     padding: 3.8rem 1rem; }
   .base-bg.bg-img {
-    background: url("../img/bg-phone.png") top left no-repeat; } }
+    background: url("../img/bg-phone.png") top left no-repeat;
+    background-size: cover; } }
 
-@media all and (-ms-high-contrast: none) and (max-width: 992px), (-ms-high-contrast: active) and (max-width: 992px) {
-  .open header nav ul {
-    left: 50%;
-    -moz-transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%); } }
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  header .menu .nav ul li a:hover {
+    font-weight: 700; } }
 
 @-moz-document url-prefix() {}
