@@ -526,14 +526,21 @@ section {
   .news-list .item.active p {
     font-size: 1.1rem; }
 
+.dis-img {
+  border: 2px solid #fff; }
+
 .dis-block-1 {
   width: 66%; }
 
 .dis-block-2 {
   width: 33%; }
-
-.dis-img {
-  border: 2px solid #fff; }
+  .dis-block-2 .dis-img:hover {
+    border: 2px solid #999;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -ms-transform: all 0.3s;
+    transition: all 0.3s; }
 
 .live-list .time {
   color: #fff;
