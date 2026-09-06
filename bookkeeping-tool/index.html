@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>記帳整理小工具</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f7f5f2;
+    --card: #ffffff;
+    --ink: #2b2620;
+    --muted: #7a7168;
+    --accent: #c96a3c;
+    --accent-ink: #ffffff;
+    --border: #e6e0d8;
+    --good: #3f7d52;
+    --bad: #b8443a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1a17;
+      --card: #26231f;
+      --ink: #f0ebe3;
+      --muted: #a49a8d;
+      --accent: #e08a5c;
+      --accent-ink: #1c1a17;
+      --border: #3a352e;
+      --good: #6fbf86;
+      --bad: #e07a70;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, "PingFang TC", "Noto Sans TC", "Helvetica Neue", Arial, sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  p.sub { color: var(--muted); margin: 0 0 28px; font-size: 14px; line-height: 1.6; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+  }
+  .drop {
+    border: 2px dashed var(--border);
+    border-radius: 12px;
+    padding: 36px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color .15s, background .15s;
+  }
+  .drop:hover, .drop.drag {
+    border-color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 8%, transparent);
+  }
+  .drop .icon { font-size: 32px; margin-bottom: 10px; }
+  .drop .main { font-size: 15px; font-weight: 600; }
+  .drop .hint { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  input[type=file] { display: none; }
+  .filename {
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+    word-break: break-all;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 13px 20px;
+    border-radius: 10px;
+    border: none;
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 16px;
+  }
+  .btn[disabled] {
+    opacity: .4;
+    cursor: not-allowed;
+  }
+  .btn.secondary {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--ink);
+  }
+  .status {
+    font-size: 13px;
+    margin-top: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    display: none;
+  }
+  .status.show { display: block; }
+  .status.ok { background: color-mix(in srgb, var(--good) 15%, transparent); color: var(--good); }
+  .status.err { background: color-mix(in srgb, var(--bad) 15%, transparent); color: var(--bad); }
+  .preview {
+    margin-top: 20px;
+  }
+  .preview h2 {
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 600;
+    margin: 0 0 10px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  th, td {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  th { color: var(--muted); font-weight: 600; }
+  td.items { white-space: pre-line; }
+  td.total { font-variant-numeric: tabular-nums; font-weight: 600; }
+  .table-scroll { max-height: 420px; overflow-y: auto; border: 1px solid var(--border); border-radius: 10px; }
+  .rules {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+  .rules summary {
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--ink);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>記帳整理小工具</h1>
+  <p class="sub">上傳「天天記帳」App 匯出的 CSV，自動整理成每日總覽並下載新的 CSV 檔。所有處理都在你的瀏覽器裡完成，檔案不會上傳到任何伺服器。</p>
+
+  <div class="card">
+    <div class="drop" id="drop">
+      <div class="icon">📄</div>
+      <div class="main">點擊選擇檔案，或拖曳 CSV 到這裡</div>
+      <div class="hint">支援「天天記帳」匯出格式 (.csv)</div>
+    </div>
+    <input type="file" id="fileInput" accept=".csv,text/csv">
+    <div class="filename" id="filename"></div>
+    <div class="status" id="status"></div>
+    <button class="btn" id="downloadBtn" disabled>下載整理好的 CSV</button>
+  </div>
+
+  <div class="card preview" id="previewCard" style="display:none;">
+    <h2>預覽（依日期由舊到新排序）</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th style="width:100px;">日期</th><th style="width:90px;">總共</th><th>細項</th></tr></thead>
+        <tbody id="previewBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <details class="rules">
+      <summary>整理規則</summary>
+      <ol>
+        <li>只保留「成員」欄位為「共用」的項目，其他成員一律忽略。</li>
+        <li>依「日期」分組整合。</li>
+        <li>項目標題優先使用「備註」，備註為空才用「類別」。</li>
+        <li>同一天同標題的多筆項目合併成一行，保留各筆原始金額並以「+」相連（例如「麵包50+386」）。</li>
+        <li>「收支區分」為「收」的金額視為負數（例如退款），計入當日總額讓「總共」反映淨支出。</li>
+        <li>輸出欄位為「日期,總共,細項」，細項內每筆項目換行顯示。</li>
+        <li>依日期由舊到新排序，越接近現在的日期排在越後面。</li>
+        <li>輸出為新的 .csv 檔，不會覆蓋原始檔案。</li>
+      </ol>
+    </details>
+  </div>
+</div>
+
+<script>
+(function () {
+  const drop = document.getElementById('drop');
+  const fileInput = document.getElementById('fileInput');
+  const filenameEl = document.getElementById('filename');
+  const statusEl = document.getElementById('status');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const previewCard = document.getElementById('previewCard');
+  const previewBody = document.getElementById('previewBody');
+
+  let outputCsv = null;
+  let outputFilename = 'output.csv';
+
+  drop.addEventListener('click', () => fileInput.click());
+  drop.addEventListener('dragover', (e) => { e.preventDefault(); drop.classList.add('drag'); });
+  drop.addEventListener('dragleave', () => drop.classList.remove('drag'));
+  drop.addEventListener('drop', (e) => {
+    e.preventDefault();
+    drop.classList.remove('drag');
+    if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+  });
+  fileInput.addEventListener('change', () => {
+    if (fileInput.files.length) handleFile(fileInput.files[0]);
+  });
+  downloadBtn.addEventListener('click', () => {
+    if (!outputCsv) return;
+    const blob = new Blob(["﻿" + outputCsv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = outputFilename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+
+  function showStatus(msg, kind) {
+    statusEl.textContent = msg;
+    statusEl.className = 'status show ' + kind;
+  }
+
+  function handleFile(file) {
+    filenameEl.textContent = file.name;
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const rows = parseCsv(reader.result);
+        const result = processRows(rows);
+        if (result.days.length === 0) {
+          showStatus('沒有找到「成員」為「共用」的資料，請確認檔案格式是否正確。', 'err');
+          downloadBtn.disabled = true;
+          previewCard.style.display = 'none';
+          return;
+        }
+        outputCsv = buildOutputCsv(result.days);
+        outputFilename = buildOutputFilename(file.name, result.days);
+        downloadBtn.disabled = false;
+        showStatus(`整理完成，共 ${result.days.length} 天的共用支出資料。`, 'ok');
+        renderPreview(result.days);
+      } catch (err) {
+        console.error(err);
+        showStatus('讀取失敗：' + err.message, 'err');
+        downloadBtn.disabled = true;
+        previewCard.style.display = 'none';
+      }
+    };
+    reader.onerror = () => showStatus('無法讀取檔案，請再試一次。', 'err');
+    reader.readAsText(file, 'UTF-8');
+  }
+
+  // --- CSV parsing (handles quoted fields with embedded commas/newlines/quotes) ---
+  function parseCsv(text) {
+    text = text.replace(/^﻿/, '');
+    const rows = [];
+    let row = [];
+    let field = '';
+    let inQuotes = false;
+    for (let i = 0; i < text.length; i++) {
+      const c = text[i];
+      if (inQuotes) {
+        if (c === '"') {
+          if (text[i + 1] === '"') { field += '"'; i++; }
+          else { inQuotes = false; }
+        } else {
+          field += c;
+        }
+      } else {
+        if (c === '"') {
+          inQuotes = true;
+        } else if (c === ',') {
+          row.push(field); field = '';
+        } else if (c === '\n') {
+          row.push(field); field = '';
+          rows.push(row); row = [];
+        } else if (c === '\r') {
+          // skip, \n will terminate the row
+        } else {
+          field += c;
+        }
+      }
+    }
+    if (field.length > 0 || row.length > 0) { row.push(field); rows.push(row); }
+    return rows.filter(r => r.length > 1 || (r.length === 1 && r[0] !== ''));
+  }
+
+  function csvField(value) {
+    const s = String(value);
+    if (/[",\n]/.test(s)) return '"' + s.replace(/"/g, '""') + '"';
+    return s;
+  }
+
+  // --- Business logic ---
+  function processRows(rows) {
+    if (rows.length === 0) throw new Error('檔案是空的');
+    const header = rows[0].map(h => h.trim());
+    const idx = (name) => {
+      const i = header.indexOf(name);
+      if (i === -1) throw new Error(`找不到欄位「${name}」，請確認是天天記帳匯出的 CSV`);
+      return i;
+    };
+    const iDate = idx('日期');
+    const iCategory = idx('類別');
+    const iAmount = idx('金額');
+    const iMember = idx('成員');
+    const iNote = idx('備註');
+    const iDirection = idx('收支區分');
+
+    const byDate = new Map();
+
+    for (let r = 1; r < rows.length; r++) {
+      const row = rows[r];
+      if (!row || row.length < header.length) continue;
+      const member = (row[iMember] || '').trim();
+      if (member !== '共用') continue;
+
+      const date = (row[iDate] || '').trim();
+      if (!date) continue;
+      const note = (row[iNote] || '').trim();
+      const category = (row[iCategory] || '').trim();
+      const title = note || category;
+      const rawAmount = parseFloat(row[iAmount]);
+      if (isNaN(rawAmount)) continue;
+      const direction = (row[iDirection] || '').trim();
+      const signedAmount = direction === '收' ? -rawAmount : rawAmount;
+
+      if (!byDate.has(date)) byDate.set(date, { total: 0, order: [], byTitle: new Map() });
+      const day = byDate.get(date);
+      day.total += signedAmount;
+
+      if (!day.byTitle.has(title)) {
+        day.byTitle.set(title, []);
+        day.order.push(title);
+      }
+      day.byTitle.get(title).push(signedAmount);
+    }
+
+    const dates = Array.from(byDate.keys()).sort((a, b) => a.localeCompare(b));
+    const days = dates.map(date => {
+      const day = byDate.get(date);
+      const lines = day.order.map(title => title + formatAmounts(day.byTitle.get(title)));
+      return { date, total: round2(day.total), lines };
+    });
+
+    return { days };
+  }
+
+  function formatAmounts(amounts) {
+    let out = '';
+    amounts.forEach((amt, i) => {
+      const n = round2(amt);
+      if (i === 0) {
+        out += (n < 0 ? String(n) : String(n));
+      } else {
+        out += (n < 0 ? String(n) : '+' + String(n));
+      }
+    });
+    return out;
+  }
+
+  function round2(n) {
+    return Math.round(n * 100) / 100;
+  }
+
+  function buildOutputCsv(days) {
+    const lines = ['日期,總共,細項'];
+    days.forEach(d => {
+      lines.push([csvField(d.date), csvField(d.total), csvField(d.lines.join('\n'))].join(','));
+    });
+    return lines.join('\r\n') + '\r\n';
+  }
+
+  function buildOutputFilename(originalName, days) {
+    const first = days[0].date;
+    const last = days[days.length - 1].date;
+    return `天天記帳整理_${first}-${last}.csv`;
+  }
+
+  function renderPreview(days) {
+    previewBody.innerHTML = '';
+    days.forEach(d => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${escapeHtml(d.date)}</td><td class="total">${escapeHtml(String(d.total))}</td><td class="items">${escapeHtml(d.lines.join('\n'))}</td>`;
+      previewBody.appendChild(tr);
+    });
+    previewCard.style.display = 'block';
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+})();
+</script>
+</body>
+</html>
