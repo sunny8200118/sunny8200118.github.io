@@ -177,6 +177,7 @@
       <summary>整理規則</summary>
       <ol>
         <li>只保留「成員」欄位為「共用」的項目，其他成員一律忽略。</li>
+        <li>「類別」欄位為「領錢」的項目忽略不計。</li>
         <li>依「日期」分組整合。</li>
         <li>項目標題優先使用「備註」，備註為空才用「類別」。</li>
         <li>同一天同標題的多筆項目合併成一行，保留各筆原始金額並以「+」相連（例如「麵包50+386」）。</li>
@@ -325,10 +326,12 @@
       const member = (row[iMember] || '').trim();
       if (member !== '共用') continue;
 
+      const category = (row[iCategory] || '').trim();
+      if (category === '領錢') continue;
+
       const date = (row[iDate] || '').trim();
       if (!date) continue;
       const note = (row[iNote] || '').trim();
-      const category = (row[iCategory] || '').trim();
       const title = note || category;
       const rawAmount = parseFloat(row[iAmount]);
       if (isNaN(rawAmount)) continue;
